@@ -10,7 +10,6 @@ async function startServer() {
   try {
     await db.authenticate();
     console.log("Database Connected...");
-    await Users.sync();
   } catch (error) {
     console.error(error);
   }
