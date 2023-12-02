@@ -1,6 +1,6 @@
 const Activities = require("../models/Activity.js");
 
-const getUsers = async (req, res) => {
+const getActivities = async (req, res) => {
   try {
     const response = await Activities.findAll();
     res.status(200).json(response);
@@ -9,4 +9,4 @@ const getUsers = async (req, res) => {
   }
 };
 
-module.exports = getUsers;
+module.exports = getActivities;
