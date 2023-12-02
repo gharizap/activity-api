@@ -3,7 +3,7 @@ const db = require("../config/Database");
 
 const { DataTypes } = Sequelize;
 
-const Users = db.define(
+const Activities = db.define(
   "activity",
   {
     id: {
@@ -28,4 +28,4 @@ const Users = db.define(
   }
 );
 
-module.exports = Users;
+module.exports = Activities;

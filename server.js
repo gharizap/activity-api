@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const router = require("./routes/router.js");
 const db = require("./config/Database.js");
-const Users = require("./models/Users.js");
+const Activities = require("./models/Activity.js");
 const app = express();
 const port = 3000;
 
