@@ -4,7 +4,7 @@ const db = require("../config/Database");
 const { DataTypes } = Sequelize;
 
 const Activities = db.define(
-  "activity",
+  "activities",
   {
     id: {
       type: DataTypes.STRING,
