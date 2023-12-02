@@ -1,4 +1,4 @@
-const Activities = require("../models/Activity.js");
+const Activities = require("../models/Activities.js");
 
 const getActivities = async (req, res) => {
   try {
