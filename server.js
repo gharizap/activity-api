@@ -1,8 +1,12 @@
 const express = require("express");
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const router = require("./routes/router.js");
 const db = require("./config/Database.js");
 const Activities = require("./models/Activities.js");
+
+dotenv.config();
 const app = express();
 const port = 3000;
 
@@ -16,6 +20,7 @@ async function startServer() {
   }
 
   app.use(cors());
+  app.use(cookieParser());
   app.use(express.json());
   app.use(router);
 
