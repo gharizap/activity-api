@@ -19,34 +19,38 @@ const createActivities = async (req, res) => {
     sleep_end,
   } = req.body;
 
-  try {
-    await Activities.create({
-      id: activityId,
-      day: day,
-      workcoll_start: workcoll_start,
-      workcoll_end: workcoll_end,
-      break_start: break_start,
-      break_end: break_end,
-      studyhome_start: studyhome_start,
-      studyhome_end: studyhome_end,
-      sleep_start: sleep_start,
-      sleep_end: sleep_end,
-      user_id: userId,
-    });
 
-    res.status(201).send({
-      error: false,
-      message: "activities has been created",
-      data: {
+try {
+    await Activities.create({
         id: activityId,
-        user_id: userId,
         day: day,
-      },
+        workcoll_start: workcoll_start,
+        workcoll_end: workcoll_end,
+        break_start: break_start,
+        break_end: break_end,
+        studyhome_start: studyhome_start,
+        studyhome_end: studyhome_end,
+        sleep_start: sleep_start,
+        sleep_end: sleep_end,
+        user_id: userId  
     });
-  } catch (error) {
-    console.log(error);
-    res.status(500).send(error);
-  }
-};
+    
+    res.status(201).send({
+        "error": false,
+        "message": "activities has been created",
+        "data": {
+            id: activityId,
+            user_id: userId,
+            day: day
+        }
+    });
+    } catch (error) {
+        res.status(500).json({
+            "error": true,
+            "message": error.message
+        });
+    }
+}
+
 
 module.exports = createActivities;

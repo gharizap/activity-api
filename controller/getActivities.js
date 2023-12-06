@@ -5,6 +5,19 @@ const getActivities = async (req, res) => {
   const userId = req.cookies.userId;
   if(!refreshToken) return res.status(401);
   
+  const activitiesIsExist = Activities.findAll({
+    where: {
+      user_id: userId
+    }
+  });
+
+  if(!activitiesIsExist){
+    return res.status(404).json({
+      "error": true,
+      "message": "Activity not found"
+  });
+  };
+
   try {
     const activities = await Activities.findAll({
       where: {
@@ -13,7 +26,10 @@ const getActivities = async (req, res) => {
     });
     res.status(200).json(activities);
   } catch (error) {
-    console.log(error.message);
+    res.status(500).json({
+      "error": true,
+      "message": error.message
+  });
   }
 };
 
