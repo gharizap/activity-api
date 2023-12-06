@@ -31,7 +31,7 @@ const createActivities = async(req, res) => {
             studyhome_end: studyhome_end,
             sleep_start: sleep_start,
             sleep_end: sleep_end,
-            user_id: userId   
+            user_id: userId  
         });
         
         res.status(201).send({
@@ -44,8 +44,10 @@ const createActivities = async(req, res) => {
             }
         });
     } catch (error) {
-        console.log(error);
-        res.status(500).send(error);
+        res.status(500).json({
+            "error": true,
+            "message": error.message
+        });
     }
 
 };
