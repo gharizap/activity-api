@@ -15,7 +15,7 @@ const Activities = db.define(
     studyhome_end: DataTypes.TIME,
     sleep_start: DataTypes.TIME,
     sleep_end: DataTypes.TIME,
-    user_id: DataTypes.STRING
+    user_id: DataTypes.STRING,
   },
   {
     freezeTableName: true,
