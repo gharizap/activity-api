@@ -3,7 +3,7 @@ const getActivities = require("../controller/getActivities");
 const createActivities = require("../controller/createActivities");
 const verifyToken = require("../middleware/verifyToken");
 const updateActivitiesId = require("../controller/updateActivitiesById");
-const getActivitiesById = require("../controller/getActivitiesByid");
+const getActivitiesById = require("../controller/getActivitiesById");
 const deleteActivitiesById = require("../controller/deleteActivitiesById");
 
 const router = express.Router();
