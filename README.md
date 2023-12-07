@@ -92,7 +92,7 @@ Ini merupakan sebuah API yang menyediakan fungsi daily routine dalam aplikasi AI
     }
     ```
 
-## Update Activities Per Id
+## Update Activities Per ID
 - **Metode** : PUT
 - **Headers** : Authentication Bearer Token
 - **URL** : **/activities/{id}
