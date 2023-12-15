@@ -1,10 +1,9 @@
 const Activities = require("../models/Activities.js");
 
 const deleteActivitiesById = async(req, res) => {
-    const refreshToken = req.cookies.refreshToken;
-    const userId = req.cookies.userId;
+    const userId = req.userId;
     const activityId = req.params.id;
-    if(!refreshToken) return res.status(401);
+    if(!userId) return res.status(401);
 
     const activityIsExist = await Activities.findOne({
         where: {
