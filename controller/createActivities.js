@@ -2,9 +2,8 @@ const Activities = require("../models/Activities.js");
 const { nanoid } = require("nanoid");
 
 const createActivities = async (req, res) => {
-  const refreshToken = req.cookies.refreshToken;
-  const userId = req.cookies.userId;
-  if (!refreshToken) return res.status(401);
+  const userId = req.userId;
+  if (!userId) return res.status(401);
 
   const activityId = "activity-" + nanoid(12);
   const {
