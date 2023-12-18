@@ -37,6 +37,14 @@ const updateActivitiesId = async (req, res) => {
             sleep_end
         } = req.body
 
+        if (!workcoll_start || !workcoll_end || !break_start || !break_end || 
+            !studyhome_start || !studyhome_end || !sleep_start || !sleep_end){
+            return res.status(400).send({
+              error: true,
+              message: "please fill in all fields"
+            });
+        }
+
         await Activities.update({
             workcoll_start: workcoll_start,
             workcoll_end: workcoll_end,
