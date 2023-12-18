@@ -18,6 +18,13 @@ const createActivities = async (req, res) => {
     sleep_end,
   } = req.body;
 
+  if (!day || !workcoll_start || !workcoll_end || !break_start || !break_end || 
+    !studyhome_start || !studyhome_end || !sleep_start || !sleep_end){
+    return res.status(400).send({
+      error: true,
+      message: "please fill in all fields"
+    });
+  }
 
 try {
     await Activities.create({
